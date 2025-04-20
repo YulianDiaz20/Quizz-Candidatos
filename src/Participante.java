@@ -11,12 +11,12 @@ public class Participante {
     public Participante() {
     }
 
-    public Participante(int votoInternet, int votoRadio, int votoTelevision, int votoTotalParticipante, double costoCampaña) {
+    public Participante(int votoInternet, int votoRadio, int votoTelevision, int votoTotalParticipante, double costoCampania) {
         this.votoInternet = votoInternet;
         this.votoRadio = votoRadio;
         this.votoTelevision = votoTelevision;
         this.votoTotalParticipante = votoTotalParticipante;
-        this.costoCampania = costoCampaña;
+        this.costoCampania = costoCampania;
     }
 
     public int getVotoInternet() {
@@ -24,7 +24,7 @@ public class Participante {
     }
 
     public void setVotoInternet(int votoInternet) {
-        this.votoInternet = votoInternet;
+        this.votoInternet = votoInternet+getVotoInternet();
     }
 
     public int getVotoRadio() {
@@ -32,7 +32,7 @@ public class Participante {
     }
 
     public void setVotoRadio(int votoRadio) {
-        this.votoRadio = votoRadio;
+        this.votoRadio = votoRadio+getVotoRadio();
     }
 
     public int getVotoTelevision() {
@@ -40,7 +40,7 @@ public class Participante {
     }
 
     public void setVotoTelevision(int votoTelevision) {
-        this.votoTelevision = votoTelevision;
+        this.votoTelevision = votoTelevision+getVotoTelevision();
     }
 
     public int getVotoTotalParticipante() {
@@ -51,15 +51,17 @@ public class Participante {
         this.votoTotalParticipante = votoTotalParticipante;
     }
 
-    public double getCostoCampaña() {
+    public double getCostoCampania() {
+        campaniaCosto();
         return costoCampania;
     }
 
-    public void setCostoCampaña(double costoCampaña) {
-        this.costoCampania = costoCampaña;
+    public void setCostoCampania(double costoCampania) {
+        this.costoCampania = costoCampania;
     }
 
     public double getCostoInternet() {
+        costoInternet();
         return costoInternet;
     }
 
@@ -68,6 +70,7 @@ public class Participante {
     }
 
     public double getCostoRadio() {
+        costoRadio();
         return costoRadio;
     }
 
@@ -76,6 +79,7 @@ public class Participante {
     }
 
     public double getCostoTelevision() {
+        costoTelevision();
         return costoTelevision;
     }
 
@@ -95,7 +99,7 @@ public class Participante {
     public void costoTelevision(){
         costoTelevision = getVotoTelevision()*600000;
     }
-    public void campañaCosto(){
+    public void campaniaCosto(){
         costoCampania = getCostoInternet()+getCostoRadio()+getCostoTelevision();
     }
     public void reiniciar(){
@@ -108,12 +112,10 @@ public class Participante {
 
     @Override
     public String toString() {
-        return "Participante{" +
-                "votoInternet=" + votoInternet +
-                ", votoRadio=" + votoRadio +
-                ", votoTelevision=" + votoTelevision +
-                ", votoTotalParticipante=" + votoTotalParticipante +
-                ", costoCampaña=" + costoCampania +
-                '}';
+        return
+                "\nVotos Internet: " + votoInternet +
+                "\nVotos Radio: " + votoRadio +
+                "\nVotos Television: " + votoTelevision +
+                "\nVotos Totales: " + votoTotalParticipante;
     }
 }
